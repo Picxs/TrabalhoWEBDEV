@@ -1,33 +1,33 @@
-# :checkered_flag: NOME DO PROJETO
+# :checkered_flag: Site de Aprendizado de Máquina
 
-Breve descrição do que o seu projeto faz.
+Um site que irá disponibilzar tutoriais sobre como iniciar a criação de modelos de Aprendizado de Máquina do zero.
 
 ## :technologist: Membros da equipe
 
-Matrícula, nome e curso dos participantes.
+512076 - Victor Gabriel da Silva - Sistemas de Informação
 
 ## :bulb: Objetivo Geral
-Descrever o objetivo de geral do projeto
+Ensinar aos usuários sobre como criar e utilizar modelos de Aprendizado de Máquina em situações reais, utilizando dados reais.
 
 ## :eyes: Público-Alvo
-Público-alvo do projeto
+Estudantes e interessado no assunto
 
 ## :star2: Impacto Esperado
-Descreva o impacto esperado do projeto em relação ao público alvo
+Esepra-se que com o conhecimento adquirido os usuários entendam o impacto que o Aprendizado de Máquina pode trazer se aplicado de maneira correta ao cenário.
 
 ## :people_holding_hands: Papéis ou tipos de usuário da aplicação
 
-Informe aqui os tipos de usuário que irão interagir com a aplicação. Ex: administrador, locador, locatario, usuário não logado.
-
-> Tenha em mente que obrigatoriamente a aplicação deve possuir funcionalidades acessíveis a todos os tipos de usuário e outra funcionalidades restritas a certos tipos de usuários.
+Administrador, usuário e usuário não logado.
 
 ## :triangular_flag_on_post:	 Principais funcionalidades da aplicação
 
-Descreve ou liste brevemente as principais funcionalidades da aplicação que será desenvolvida. Destaque a funcionalidades que serão acessévies a todos os usuários e aquelas restriras a usuários logados.
+Administrador: CRUD de uma aula.
+Usuário: Visualizar a aula e pedir ajuda aos administradores.
+Usuário não logado: Visualizar a aula.
 
 ## :spiral_calendar: Entidades ou tabelas do sistema
-
-Liste as principais entidades do sistema.
+Entidades:
+Administrador, usuários, aulas e chat(?) (Talvez seja necessário adicionar mais)
 
 
 ----
