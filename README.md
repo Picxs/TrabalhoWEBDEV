@@ -23,7 +23,7 @@ Administrador, aula, chat da aula, usuário e usuário não logado.
 
 ## :triangular_flag_on_post:	Principais funcionalidades da aplicação
 
-Administrador: CRUD de uma aula, CRUD do chat da aula, CRUD de usuário
+Administrador: CRUD de uma aula, CRUD do chat da aula, CRUD de usuário.
 Usuário: Visualizar a aula e acesso ao chat da aula.
 Usuário não logado: Visualizar a aula.
 
