@@ -1,0 +1,385 @@
+/* Reset básico */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Menu fixo */
+.menu-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.menu-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Esquerda: Título e botão Courses */
+.left-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.left-menu h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Direita: Botões Sign up e Sign in */
+.right-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.right-menu a,
+.left-menu .btn-courses {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.right-menu a:hover,
+.left-menu .btn-courses:hover {
+    background-color: #575757;
+    border-radius: 5px;
+}
+
+/* Configuração principal do layout */
+main.main-container {
+    margin-top: 90px; /* Aumentado para dar mais espaço abaixo do menu */
+    display: flex;
+    gap: 20px;
+    flex-grow: 1;
+    height: auto; /* Permite que a altura aumente conforme necessário */
+    align-items: flex-start;
+}
+
+/* Coluna principal: 75% */
+.content {
+    flex: 3; /* 75% da largura */
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100%;
+}
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Formulário de Cadastro */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+input:focus {
+    border-color: #333;
+    outline: none;
+}
+
+.btn-submit {
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #575757;
+}
+
+/* Coluna de notícias: 25% */
+.news {
+    flex: 1; /* 25% da largura */
+    background-color: #eaeaea;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    align-self: flex-start; /* Mantém no topo */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    main.main-container {
+        flex-direction: column;
+    }
+
+    .content,
+    .news {
+        flex: 1; /* Ambos ocupam 100% em telas menores */
+    }
+}
+/* Tela de Cadastro (Isolada) */
+.main-container-cadastro {
+    margin-top: 70px; /* Espaço para não sobrepor o menu */
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    height: calc(100vh - 70px); /* O main ocupa todo o espaço disponível */
+}
+
+.content-cadastro {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px; /* Tamanho máximo do formulário */
+}
+
+/* Títulos do formulário */
+.content-cadastro h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Formulário de Cadastro */
+.signup-form .form-group {
+    margin-bottom: 20px;
+}
+
+.signup-form label {
+    font-size: 16px;
+}
+
+.signup-form input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.signup-form input:focus {
+    border-color: #333;
+    outline: none;
+}
+
+.signup-form .btn-submit {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.signup-form .btn-submit:hover {
+    background-color: #575757;
+}
+
+/* Responsividade para a tela de cadastro */
+@media (max-width: 768px) {
+    .main-container-cadastro {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .content-cadastro {
+        flex: 1;
+        align-self: stretch;
+    }
+}
+
+.btn-model-learning {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 0; /* Remover o padding para deixar como texto */
+    transition: background-color 0.3s;
+}
+
+.btn-model-learning:hover {
+    background-color: #575757; /* Fundo ao passar o mouse */
+    border-radius: 5px;
+}
+
+/* Estilos para a tela de cursos */
+
+/* Ajuste para a área principal */
+.main-container-courses {
+    margin-top: 70px; /* Espaço para não sobrepor o menu */
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.content-courses {
+    width: 100%;
+    max-width: 1200px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilo para a lista de cursos */
+.course-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.course-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.course-item:hover {
+    transform: translateY(-10px);
+}
+
+.course-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.course-item p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+/* Botão de matrícula */
+.btn-enroll {
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.btn-enroll:hover {
+    background-color: #575757;
+}
+
+/* Ajustando o bloco de novidades */
+.novidades {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.novidades h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Lista de novidades */
+.novidade-list {
+    display: flex;
+    flex-direction: column; /* Organiza verticalmente */
+    gap: 20px;
+    width: 100%;
+}
+
+/* Bloco de cada novidade */
+.novidade-item {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.novidade-item:hover {
+    transform: translateY(-5px);
+}
+
+.novidade-item h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.novidade-item p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+/* Botão de ver mais */
+.btn-link {
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.btn-link:hover {
+    background-color: #575757;
+}
