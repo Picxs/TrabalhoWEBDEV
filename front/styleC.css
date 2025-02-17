@@ -1,4 +1,3 @@
-/* Reset básico */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -62,7 +61,7 @@ main.main-container {
     text-decoration: none;
     font-size: 24px;
     font-weight: bold;
-    padding: 0; /* Remover o padding para deixar como texto */
+    padding: 0;
     transition: background-color 0.3s;
 }
 
@@ -103,15 +102,15 @@ main.main-container {
 }
 
 .text-center {
-    text-align: center; /* Mantém títulos centralizados */
+    text-align: center;
 }
 
 .text-left {
-    text-align: left; /* Alinha os textos ao lado esquerdo */
+    text-align: left;
 }
 
 .course-info ul {
-    list-style: none; /* Remove os marcadores padrão */
+    list-style: none; 
     padding: 0;
     margin: 0;
     display: flex;
@@ -127,7 +126,7 @@ main.main-container {
     flex-grow: 1;
     width: 100%;
     font-size: 16px;
-    text-align: left; /* Alinha cada item da lista à esquerda */
+    text-align: left; 
 }
 
 .course-info ul li a {
@@ -140,7 +139,7 @@ main.main-container {
 }
 
 .course-info ul li a:hover {
-    color: #007bff; /* Azul para destacar no hover */
+    color: #007bff; 
 }
 
 .course-section {
@@ -223,7 +222,6 @@ main.main-container {
     background-color: #575757;
 }
 
-/* Rodapé */
 .footer {
     background-color: #333;
     color: white;

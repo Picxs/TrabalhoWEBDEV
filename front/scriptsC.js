@@ -1,4 +1,3 @@
-// Obter elementos
 const forumIcon = document.getElementById('forum-icon');
 const chatBox = document.getElementById('chat-box');
 const closeChat = document.getElementById('close-chat');
@@ -15,7 +14,6 @@ closeChat.addEventListener('click', function () {
     chatBox.style.display = 'none';
 });
 
-// Lidar com o envio do formulário
 forumForm.addEventListener('submit', function (event) {
     event.preventDefault();
     const question = document.getElementById('question').value;
@@ -26,7 +24,7 @@ forumForm.addEventListener('submit', function (event) {
     userMessageDiv.textContent = question;
     chatMessages.appendChild(userMessageDiv);
 
-    // Aqui você pode simular a resposta do "admin"
+    //simular a resposta do "admin"
     setTimeout(function () {
         const adminResponseDiv = document.createElement('div');
         adminResponseDiv.classList.add('admin-response');
