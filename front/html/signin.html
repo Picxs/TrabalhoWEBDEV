@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <header class="menu-bar">
         <div class="menu-container">
             <div class="left-menu">
-                <!-- Link "Model Learning" transformado em botão estilizado -->
                 <a href="index.html" class="btn-model-learning">Model Learning</a>
                 <a href="courses.html" class="btn-courses">Courses</a>
             </div>
@@ -26,15 +25,16 @@
             <form class="signup-form">
                 <div class="form-group">
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" placeholder="Digite seu e-mail" required>
+                    <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Senha</label>
-                    <input type="password" id="password" placeholder="Digite sua senha" required>
+                    <input type="password" class="form-control" id="password" placeholder="Digite sua senha" required>
                 </div>
                 <button type="submit" class="btn-submit">Entrar</button>
             </form>
         </div>
     </main>
+    <script src="../js/signin.js"></script>
 </body>
 </html>

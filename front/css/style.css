@@ -381,3 +381,8 @@ h2 {
 .btn-link:hover {
     background-color: #575757;
 }
+
+.hidden {
+    display: none;
+}
+
