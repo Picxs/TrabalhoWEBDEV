@@ -270,6 +270,7 @@ main.main-container {
 }
 
 #chat-box {
+    display: none;
     position: fixed;
     bottom: 0;
     right: 0;
@@ -279,10 +280,10 @@ main.main-container {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    display: none;
     flex-direction: column;
     padding: 10px;
 }
+
 
 #chat-header {
     display: flex;
@@ -351,5 +352,43 @@ main.main-container {
     border: none;
     padding: 10px;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important; /* Garante que o modal esteja oculto */
+}
+
+/* Estilização do modal */
+.modal {
+    display: none; /* O modal começa oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Quando o modal estiver visível */
+.modal:not(.hidden) {
+    display: flex; /* Exibe o modal */
+}
+
+/* Conteúdo do modal */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Botões do modal */
+.modal-content button {
+    margin: 10px;
+    padding: 10px 15px;
     cursor: pointer;
 }

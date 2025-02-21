@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
             if (response.ok) {
                 alert("Login realizado com sucesso!");
                 localStorage.setItem("token", data.jwt); // Salva o token para futuras requisições
+                const userId = data.user.id;
+                localStorage.setItem('userId', userId);
                 window.location.href = "courses.html"; // Redireciona para a página de cursos
             } else {
                 alert("Erro no login: " + (data.message || "Tente novamente mais tarde."));
@@ -33,30 +35,54 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const signupBtn = document.getElementById("signup-btn");
-    const signinBtn = document.getElementById("signin-btn");
-    const logoutBtn = document.getElementById("logout-btn");
+document.addEventListener("DOMContentLoaded", async function () {
+    const signupBtn = document.querySelector(".signup-btn");
+    const signinBtn = document.querySelector(".signin-btn");
+    const logoutBtn = document.querySelector(".logout-btn");
 
-    // Verifica se o usuário está logado
-    const token = localStorage.getItem("token");
+    if (!signupBtn || !signinBtn || !logoutBtn) {
+        console.error("Erro: Um ou mais botões não foram encontrados.");
+        return;
+    }
 
-    if (token) {
-        // Se o usuário estiver logado, oculta Sign up/Sign in e mostra Logout
+    const user = await checkUserLoggedIn();
+
+    if (user) {
         signupBtn.classList.add("hidden");
         signinBtn.classList.add("hidden");
         logoutBtn.classList.remove("hidden");
     } else {
-        // Se não estiver logado, exibe os botões de Sign up/Sign in
         signupBtn.classList.remove("hidden");
         signinBtn.classList.remove("hidden");
         logoutBtn.classList.add("hidden");
     }
 
-    // Função de logout
-    logoutBtn.addEventListener("click", function () {
+    logoutBtn.addEventListener("click", function (event) {
+        event.preventDefault();
         localStorage.removeItem("token");
-        window.location.href = "index.html"; // Redireciona para a página inicial ou para onde você desejar
+        window.location.reload();
     });
 });
 
+async function checkUserLoggedIn() {
+    const token = localStorage.getItem("token");
+
+    if (!token) return null;
+
+    try {
+        const response = await fetch("http://localhost:1337/api/users/me", {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) throw new Error("Token inválido ou expirado");
+
+        return await response.json();
+    } catch (error) {
+        console.error("Erro ao verificar usuário:", error);
+        localStorage.removeItem("token");
+        return null;
+    }
+}
