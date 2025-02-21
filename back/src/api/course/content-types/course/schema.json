@@ -4,7 +4,8 @@
   "info": {
     "singularName": "course",
     "pluralName": "courses",
-    "displayName": "Course"
+    "displayName": "Course",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,11 +19,11 @@
       "type": "text",
       "required": true
     },
-    "Chats": {
+    "chats": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::chat.chat",
-      "mappedBy": "Course"
+      "mappedBy": "course"
     }
   }
 }

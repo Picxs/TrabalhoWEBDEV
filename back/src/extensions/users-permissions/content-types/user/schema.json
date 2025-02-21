@@ -67,9 +67,9 @@
     },
     "chats": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::chat.chat",
-      "mappedBy": "Users"
+      "mappedBy": "users"
     }
   }
 }

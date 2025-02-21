@@ -15,20 +15,20 @@
       "type": "text",
       "required": true
     },
-    "Users": {
+    "users": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
       "inversedBy": "chats"
     },
-    "Course": {
+    "Date": {
+      "type": "date"
+    },
+    "course": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::course.course",
-      "inversedBy": "Chats"
-    },
-    "Date": {
-      "type": "date"
+      "inversedBy": "chats"
     }
   }
 }
