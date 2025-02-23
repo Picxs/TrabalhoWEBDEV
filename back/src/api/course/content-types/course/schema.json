@@ -24,6 +24,10 @@
       "relation": "oneToMany",
       "target": "api::chat.chat",
       "mappedBy": "course"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Title"
     }
   }
 }

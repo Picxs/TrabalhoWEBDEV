@@ -10,13 +10,14 @@
     <header class="menu-bar">
         <div class="menu-container">
             <div class="left-menu">
-                <!-- Link "Model Learning" transformado em botão estilizado -->
                 <a href="index.html" class="btn-model-learning">Model Learning</a>
                 <a href="courses.html" class="btn-courses">Courses</a>
             </div>
             <nav class="right-menu">
                 <a href="signup.html" class="signup-btn">Sign up</a> 
                 <a href="signin.html" class="signin-btn">Sign in</a>
+                <button class="admin-text hidden">Admin</button>
+                <a href="profile.html" class="profile-btn hidden">Profile</a> <!-- Botão de perfil -->
                 <button class="logout-btn hidden">Logout</button>
             </nav>
         </div>
@@ -24,30 +25,31 @@
     <main class="main-container-courses">
         <div class="content-courses">
             <h2>Cursos Disponíveis</h2>
-            <div class="course-list">
-                <div class="course-item">
-                    <h3>Curso 1</h3>
-                    <p>Descrição do curso 1.</p>
-                    <a href="course1.html" class="btn-enroll">Começe a Aprender</a>
-                </div>
-                <div class="course-item">
-                    <h3>Curso 2</h3>
-                    <p>Descrição do curso 2.</p>
-                    <a href="course2.html" class="btn-enroll">Começe a Aprender</a>
-                </div>
-                <div class="course-item">
-                    <h3>Curso 3</h3>
-                    <p>Descrição do curso 3.</p>
-                    <a href="#" class="btn-enroll">Começe a Aprender</a>
-                </div>
-                <div class="course-item">
-                    <h3>Curso 4</h3>
-                    <p>Descrição do curso 4.</p>
-                    <a href="#" class="btn-enroll">Começe a Aprender</a>
-                </div
+            <div id="courses-container" class="course-list"></div>
+            <div id="admin-controls" class="create-course hidden">
+                <button id="create-course-btn">Criar Curso</button>
             </div>
         </div>
     </main>
+    <div id="create-course-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Criar Novo Curso</h2>
+            <input type="text" id="course-title" placeholder="Nome do Curso" />
+            <textarea id="course-description" placeholder="Descrição do Curso"></textarea>
+            <button id="save-course-btn">Salvar</button>
+            <button id="cancel-create-course-btn">Cancelar</button>
+        </div>
+    </div>
+    <div id="edit-course-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Editar Curso</h2>
+            <input type="text" id="edit-course-title" placeholder="Nome do Curso" />
+            <textarea id="edit-course-description" placeholder="Descrição do Curso"></textarea>
+            <button id="save-edit-course-btn">Salvar</button>
+            <button id="cancel-edit-course-btn">Cancelar</button>
+        </div>
+    </div>
+    <script src="../js/course.js"></script>
     <script src="../js/uservalidade.js"></script>
 </body>
 </html>

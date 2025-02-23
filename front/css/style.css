@@ -386,6 +386,10 @@ h2 {
     display: none !important; /* Garante que o modal esteja oculto */
 }
 
+.create-course:not(.hidden){
+    display: flex;
+}
+
 /* Estilização do modal */
 .modal {
     display: none; /* O modal começa oculto */
@@ -397,11 +401,12 @@ h2 {
     background: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
+    z-index: 2000;
 }
 
 /* Quando o modal estiver visível */
 .modal:not(.hidden) {
-    display: flex; /* Exibe o modal */
+    display: block; /* Exibe o modal */
 }
 
 /* Conteúdo do modal */
@@ -418,4 +423,20 @@ h2 {
     margin: 10px;
     padding: 10px 15px;
     cursor: pointer;
+}
+
+.btn-edit, .btn-delete {
+    margin-left: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.btn-edit {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+.btn-delete {
+    background-color: #d9534f;
+    color: white;
 }

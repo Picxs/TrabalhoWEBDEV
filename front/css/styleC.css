@@ -392,3 +392,8 @@ main.main-container {
     padding: 10px 15px;
     cursor: pointer;
 }
+
+.admin-message {
+    background-color: #4CAF50;  /* Cor de fundo verde para admins */
+    color: rgb(194, 22, 22);
+}

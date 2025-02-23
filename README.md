@@ -23,7 +23,7 @@ Administrador, aula, chat da aula, usuário e usuário não logado.
 
 ## :triangular_flag_on_post:	Principais funcionalidades da aplicação
 
-Administrador: CRUD de uma aula, CRUD do chat da aula, CRUD de usuário.
+Administrador: CRUD de uma aula, CRUD do chat da aula
 Usuário: Visualizar a aula e acesso ao chat da aula.
 Usuário não logado: Visualizar a aula.
 
@@ -43,11 +43,11 @@ Administrador, usuários, aulas e chat da aula.
 
 **Frontend:**
 
-Lista as tecnologias, frameworks e bibliotecas utilizados.
+HTML, JavaScript e CSS
 
 **Backend:**
 
-Lista as tecnologias, frameworks e bibliotecas utilizados.
+Strapi
 
 
 ## :shipit: Operações implementadas para cada entidade da aplicação
@@ -55,9 +55,9 @@ Lista as tecnologias, frameworks e bibliotecas utilizados.
 
 | Entidade| Criação | Leitura | Atualização | Remoção |
 | --- | --- | --- | --- | --- |
-| Entidade 1 | X |  X  |  | X |
-| Entidade 2 | X |    |  X | X |
-| Entidade 3 | X |    |  |  |
+| User | X |  X  | X | X |
+| Course | X |  X  |  X | X |
+| chat | X |  X  | X | X |
 
 > Lembre-se que é necessário implementar o CRUD de pelo menos duas entidades.
 
@@ -65,5 +65,24 @@ Lista as tecnologias, frameworks e bibliotecas utilizados.
 
 | Método HTTP | URL |
 | --- | --- |
-| GET | api/entidade1/|
-| POST | api/entidade2 |
+| POST | api/User/|
+| GET | api/User/|
+| GET | api/User/Id|
+| PUT | api/User/Id|
+| DELETE | api/User/Id|
+| POST | api/Course|
+| GET | api/Course|
+| GET | api/Course/Id|
+| PUT | api/Course/Id|
+| DELETE | api/Course/Id|
+| POST | api/Chat|
+| GET | api/Chat|
+| GET | api/Chat/Id|
+| PUT | api/Chat/Id|
+| DELETE | api/Chat/Id|
+
+
+
+
+
+

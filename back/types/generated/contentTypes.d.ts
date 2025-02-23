@@ -369,41 +369,6 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiAdminAdmin extends Struct.CollectionTypeSchema {
-  collectionName: 'admins';
-  info: {
-    description: '';
-    displayName: 'Admin';
-    pluralName: 'admins';
-    singularName: 'admin';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    admin_user: Schema.Attribute.Relation<'oneToOne', 'admin::user'>;
-    blocked: Schema.Attribute.Boolean;
-    chats: Schema.Attribute.Relation<'oneToMany', 'api::chat.chat'>;
-    confirmationToken: Schema.Attribute.String;
-    confirmed: Schema.Attribute.Boolean;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    email: Schema.Attribute.Email;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::admin.admin'> &
-      Schema.Attribute.Private;
-    password: Schema.Attribute.Password;
-    provider: Schema.Attribute.String & Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    resetPasswordToken: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    username: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
 export interface ApiChatChat extends Struct.CollectionTypeSchema {
   collectionName: 'chats';
   info: {
@@ -420,7 +385,6 @@ export interface ApiChatChat extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Date: Schema.Attribute.Date;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::chat.chat'> &
       Schema.Attribute.Private;
@@ -460,6 +424,7 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'Title'>;
     Title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -977,7 +942,6 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::admin.admin': ApiAdminAdmin;
       'api::chat.chat': ApiChatChat;
       'api::course.course': ApiCourseCourse;
       'plugin::content-releases.release': PluginContentReleasesRelease;

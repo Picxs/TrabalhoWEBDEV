@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="menu-bar">
+        <div class="menu-container">
+            <div class="left-menu">
+                <a href="index.html" class="btn-model-learning">Model Learning</a>
+                <a href="courses.html" class="btn-courses">Courses</a>
+            </div>
+            <nav class="right-menu">
+                <a href="signup.html" class="signup-btn">Sign up</a> 
+                <a href="signin.html" class="signin-btn">Sign in</a>
+                <button class="admin-text hidden">Admin</button>
+                <a href="profile.html" class="profile-btn hidden">Profile</a>
+                <button class="logout-btn hidden">Logout</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal da página de perfil -->
+    <main class="main-container-cadastro">
+        <div class="content-cadastro">
+            <h2>User Profile</h2>
+
+            <!-- Nome do usuário -->
+            <div class="profile-field">
+                <span id="name-display"></span>
+                <button id="edit-name" class="btn-edit">Edit</button>
+            </div>
+
+            <!-- Email do usuário -->
+            <div class="profile-field">
+                <span id="email-display"></span>
+                <button id="edit-email" class="btn-edit">Edit</button>
+            </div>
+
+            <!-- Botão para deletar a conta -->
+            <button id="btn-delete-account" class="btn-delete">Delete Account</button>
+        </div>
+    </main>
+
+    <!-- Modal de confirmação para deletar conta -->
+    <div id="delete-modal" class="modal hidden">
+        <div class="modal-content">
+            <p>Are you sure you want to delete your account? This action cannot be undone.</p>
+            <button id="confirm-delete" class="btn-delete">Delete</button>
+            <button id="cancel-delete" class="btn-submit">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Modal para editar nome -->
+    <div id="edit-name-modal" class="modal hidden">
+        <div class="modal-content">
+            <p>Edit Name:</p>
+            <input type="text" id="new-name" placeholder="New Name">
+            <button id="save-name" class="btn-submit">Save</button>
+            <button id="cancel-name" class="btn-delete">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Modal para editar email -->
+    <div id="edit-email-modal" class="modal hidden">
+        <div class="modal-content">
+            <p>Edit Email:</p>
+            <input type="email" id="new-email" placeholder="New Email">
+            <button id="save-email" class="btn-submit">Save</button>
+            <button id="cancel-email" class="btn-delete">Cancel</button>
+        </div>
+    </div>
+
+    <script src="../js/uservalidade.js"></script>
+</body>
+</html>

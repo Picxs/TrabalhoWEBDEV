@@ -16,6 +16,8 @@
             <nav class="right-menu">
                 <a href="signup.html" class="signup-btn">Sign up</a> 
                 <a href="signin.html" class="signin-btn">Sign in</a>
+                <button class="admin-text hidden">Admin</button>
+                <a href="profile.html" class="profile-btn hidden">Profile</a> <!-- Botão de perfil -->
                 <button class="logout-btn hidden">Logout</button>
             </nav>
         </div>
@@ -26,19 +28,7 @@
             <section class="novidades">
                 <div class="novidade-list">
                     <div class="novidade-item">
-                        <h4>Curso 1</h4>
-                        <p>Descrição do curso 1</p>
-                        <a href="course1.html" class="btn-link">Ver mais</a>
-                    </div>
-                    <div class="novidade-item">
-                        <h4>Curso 2</h4>
-                        <p>Descrição do curso 2.</p>
-                        <a href="course2.html" class="btn-link">Ver mais</a>
-                    </div>
-                    <div class="novidade-item">
-                        <h4>Curso 3</h4>
-                        <p>Descrição do cruso 3.</p>
-                        <a href="#" class="btn-link">Ver mais</a>
+                        <div id="courses-container" class="course-list"></div>
                     </div>
                     <!-- Adicione mais blocos conforme necessário -->
                 </div>
@@ -49,6 +39,7 @@
             <p>Últimas atualizações e informações</p>
         </aside>
     </main>
+    <script src="../js/course.js"></script>
     <script src="../js/uservalidade.js"></script>
 </body>
 </html>
