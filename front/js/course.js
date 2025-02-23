@@ -65,7 +65,7 @@ async function loadCourses() {
             return;
         }
 
-        coursesContainer.innerHTML = '';  // Limpa o container
+        coursesContainer.innerHTML = '';  
 
         for (const course of data.data) {
             const courseElement = document.createElement('div');
@@ -136,7 +136,7 @@ async function createCourse() {
             }
         };
 
-        console.log("Dados enviados:", courseData); // Depuração
+        console.log("Dados enviados:", courseData); 
 
         const response = await fetch("http://localhost:1337/api/courses", {
             method: "POST",
@@ -148,8 +148,8 @@ async function createCourse() {
         });
 
         if (!response.ok) {
-            const errorData = await response.json(); // Captura o erro retornado pela API
-            console.error("Erro detalhado:", errorData); // Depuração
+            const errorData = await response.json(); 
+            console.error("Erro detalhado:", errorData); 
             throw new Error("Erro ao criar curso");
         }
 
@@ -244,9 +244,9 @@ async function deleteCourse(courseId) {
 
         // Confirmar a exclusão com o usuário
         const confirmDelete = confirm(`Tem certeza que deseja excluir o curso "${courseToDelete.Title}"?`);
-        if (!confirmDelete) return; // Se o usuário cancelar, não faz nada
+        if (!confirmDelete) return; 
 
-        // Fazer a requisição DELETE para a API
+    
         const deleteResponse = await fetch(`http://localhost:1337/api/courses/${courseToDelete.documentId}`, {
             method: "DELETE",
             headers: {

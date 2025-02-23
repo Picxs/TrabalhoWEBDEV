@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (response.ok) {
                 alert("Cadastro realizado com sucesso!");
                 localStorage.setItem("token", data.jwt); // Salva o token para login automático
-                window.location.href = "courses.html"; // Redireciona para a página de cursos
+                window.location.href = "courses.html";
             } else {
                 alert("Erro no cadastro: " + (data.message || "Tente novamente mais tarde."));
             }

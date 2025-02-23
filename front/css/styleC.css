@@ -203,7 +203,6 @@ main.main-container {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Botão de inscrição */
 .btn-enroll {
     background-color: #333;
     color: white;
@@ -377,7 +376,6 @@ main.main-container {
     display: flex; /* Exibe o modal */
 }
 
-/* Conteúdo do modal */
 .modal-content {
     background: white;
     padding: 20px;
@@ -386,7 +384,6 @@ main.main-container {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Botões do modal */
 .modal-content button {
     margin: 10px;
     padding: 10px 15px;

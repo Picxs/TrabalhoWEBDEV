@@ -249,7 +249,6 @@ input:focus {
 }
 
 /* Estilos para a tela de cursos */
-
 /* Ajuste para a área principal */
 .main-container-courses {
     margin-top: 70px; /* Espaço para não sobrepor o menu */
@@ -302,7 +301,7 @@ h2 {
     margin-bottom: 15px;
 }
 
-/* Botão de matrícula */
+
 .btn-enroll {
     background-color: #333;
     color: white;
@@ -338,7 +337,7 @@ h2 {
 /* Lista de novidades */
 .novidade-list {
     display: flex;
-    flex-direction: column; /* Organiza verticalmente */
+    flex-direction: column; 
     gap: 20px;
     width: 100%;
 }
@@ -409,7 +408,7 @@ h2 {
     display: block; /* Exibe o modal */
 }
 
-/* Conteúdo do modal */
+
 .modal-content {
     background: white;
     padding: 20px;

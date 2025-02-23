@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Se o token não existir, oculta o ícone de chat
     if (!token) {
         forumIcon.style.display = 'none'; // Oculta o ícone de chat se não estiver logado
-        return; // Não permite que o usuário interaja com o chat
+        return; 
     }
 
     // Se estiver logado, exibe o ícone de chat
@@ -22,10 +22,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (chatBox.classList.contains('hidden') || chatBox.style.display === 'none' || chatBox.style.display === '') {
             chatBox.style.display = 'flex'; // Exibe o chat
             chatBox.classList.remove('hidden'); // Remove a classe hidden
-            loadMessages(); // Carregar mensagens ao abrir o chat
+            loadMessages(); 
         } else {
             chatBox.style.display = 'none'; // Esconde o chat
-            chatBox.classList.add('hidden'); // Adiciona a classe hidden para garantir que o chat permaneça oculto
+            chatBox.classList.add('hidden'); 
         }
     });
 
@@ -37,8 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Função para extrair o slug do curso na URL
 function getCourseSlugFromURL() {
-    const path = window.location.pathname; // Captura o caminho completo da URL
-    const regex = /\/html\/([a-z0-9\-]+)\.html$/; // Regex para capturar o slug após '/html/' e antes de '.html'
+    const path = window.location.pathname; 
+    const regex = /\/html\/([a-z0-9\-]+)\.html$/;
     const match = path.match(regex);
 
     if (match && match[1]) {
@@ -77,13 +77,13 @@ async function loadMessages() {
                 messageTextSpan.classList.add('chat-message-text');
                 messageTextSpan.textContent = messageText;
 
-                // Adicionar botão de edição (para todos os usuários logados)
+                // Adicionar botão de edição
                 const editButton = document.createElement('button');
                 editButton.classList.add('edit-message-btn');
                 editButton.textContent = 'Editar';
                 editButton.addEventListener('click', () => editMessage(messageId));
 
-                // Adicionar botão de remoção (apenas para admin)
+                // Adicionar botão de remoção
                 if (isAdmin) {
                     const deleteButton = document.createElement('button');
                     deleteButton.classList.add('delete-message-btn');
@@ -101,7 +101,7 @@ async function loadMessages() {
             console.log('Não há mensagens para exibir.');
         }
 
-        // Rolar a tela para a última mensagem
+        
         chatMessages.scrollTop = chatMessages.scrollHeight;
 
     } catch (error) {
@@ -297,10 +297,10 @@ forumForm.addEventListener('submit', async function (event) {
         data: {
             Message: question,
             course: { 
-                connect: [{ id: courseId.id - 1}]  // Relaciona o chat com o curso (um chat para um curso)
+                connect: [{ id: courseId.id - 1}]
             },
             users: {
-                connect: [{ id: userId }]  // Relaciona o chat com o usuário
+                connect: [{ id: userId }]  
             },
         }
     };

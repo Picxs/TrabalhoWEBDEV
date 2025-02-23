@@ -2,12 +2,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     const signupBtn = document.querySelector(".signup-btn");
     const signinBtn = document.querySelector(".signin-btn");
     const logoutBtn = document.querySelector(".logout-btn");
-    const adminTextBtn = document.querySelector(".admin-text"); // Botão para admins
-    const profileBtn = document.querySelector(".profile-btn"); // Botão de perfil
+    const adminTextBtn = document.querySelector(".admin-text");
+    const profileBtn = document.querySelector(".profile-btn"); 
 
     let logoutModal = document.getElementById("logout-modal");
 
-    // Criar e adicionar o modal ao body (se ainda não existir)
+    // Criar e adicionar o modal ao body
     if (!document.getElementById("logout-modal")) {
         const modalHTML = `
             <div id="logout-modal" class="modal hidden">
@@ -27,14 +27,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     const confirmLogoutBtn = document.getElementById("confirm-logout");
     const cancelLogoutBtn = document.getElementById("cancel-logout");
 
-    // Verifica se o usuário está logado e se é Admin
+    // Verifica se o usuário está logado 
     const user = await checkUserLoggedIn();
 
     if (user) {
         signupBtn.classList.add("hidden");
         signinBtn.classList.add("hidden");
         logoutBtn.classList.remove("hidden");
-        profileBtn.classList.remove("hidden"); // Mostra o botão de perfil
+        profileBtn.classList.remove("hidden");
 
         // Verifica se o usuário tem a role "Admin"
         if (user.role && user.role.name === "Admin") {
@@ -49,8 +49,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         signupBtn.classList.remove("hidden");
         signinBtn.classList.remove("hidden");
         logoutBtn.classList.add("hidden");
-        profileBtn.classList.add("hidden"); // Oculta o botão de perfil
-        adminTextBtn.classList.add("hidden"); // Oculta para usuários não logados
+        profileBtn.classList.add("hidden"); 
+        adminTextBtn.classList.add("hidden"); 
     }
 
     // Evento para abrir o modal de logout

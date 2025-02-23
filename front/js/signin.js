@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 localStorage.setItem("token", data.jwt);
                 localStorage.setItem("userId", data.user.id);
 
-                // 🚀 Obtém detalhes do usuário para verificar a role
                 let userResponse = await fetch(`http://localhost:1337/api/users/${data.user.id}?populate=role`, {
                     method: "GET",
                     headers: {
@@ -35,10 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 let userData = await userResponse.json();
 
-                // 📌 Verifica se o usuário tem a role "Admin"
                 if (userData.role && userData.role.name === "Admin") {
                     localStorage.setItem("isAdmin", "true");
-                    window.location.href = "index.html"; // Redireciona para o painel admin
+                    window.location.href = "index.html"; 
                 } else {
                     localStorage.setItem("isAdmin", "false");
                     window.location.href = "courses.html"; // Redireciona para cursos
