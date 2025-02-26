@@ -267,7 +267,10 @@ async function deleteAccount(userId) {
 async function checkUserLoggedIn() {
     const token = localStorage.getItem("token");
 
-    if (!token) return null;
+    if (!token){
+        console.log("o usuário n está logado")
+        return null
+    };
 
     try {
         const response = await fetch("http://localhost:1337/api/users/me?populate=role", {

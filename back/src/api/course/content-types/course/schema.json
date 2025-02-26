@@ -28,6 +28,21 @@
     "slug": {
       "type": "uid",
       "targetField": "Title"
+    },
+    "TopicoA": {
+      "type": "text"
+    },
+    "TopicoB": {
+      "type": "text"
+    },
+    "TopicoC": {
+      "type": "text"
+    },
+    "TopicoD": {
+      "type": "text"
+    },
+    "TopicoE": {
+      "type": "text"
     }
   }
 }

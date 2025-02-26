@@ -40,6 +40,8 @@ function closeModal(modalId) {
 }
 
 async function loadCourses() {
+    const token = localStorage.getItem("token");
+
     try {
         const response = await fetch('http://localhost:1337/api/courses', {
             method: "GET"
@@ -74,10 +76,10 @@ async function loadCourses() {
                 <h3>${course.Title}</h3>
                 <p>${course.Description}</p>
                 ${isAdmin ? `
-                    <button onclick="openEditModalC(${course.id})" class="btn-edit">Editar</button>
-                    <button onclick="deleteCourse(${course.id})" class="btn-delete">Remover</button>
+                    <button onclick="openEditModalC('${course.id}')" class="btn-edit">Editar</button>
+                    <button onclick="deleteCourse('${course.id}')" class="btn-delete">Remover</button>
                 ` : ''}
-                <a href="${course.slug}.html" class="btn-enroll">Comece a Aprender</a>
+                <a href="course.html?id=${course.id}" class="btn-enroll">Comece a Aprender</a>
             `;
             coursesContainer.appendChild(courseElement);
         }
@@ -87,13 +89,15 @@ async function loadCourses() {
     }
 }
 
-// Abrir modal de edição
 async function openEditModalC(courseId) {
     try {
-        console.log(courseId)
         const response = await fetch(`http://localhost:1337/api/courses`);
+        if (!response.ok) {
+            throw new Error(`Erro na requisição: ${response.status} ${response.statusText}`);
+        }
+
         const data = await response.json();
-        const course = data.data.find(course => course.id === courseId);
+        const course = data.data.find(course => course.id === Number(courseId));
 
         if (!course) {
             alert("Curso não encontrado!");
@@ -103,6 +107,11 @@ async function openEditModalC(courseId) {
         // Preencher os campos do modal de edição
         document.getElementById("edit-course-title").value = course.Title;
         document.getElementById("edit-course-description").value = course.Description;
+        document.getElementById("edit-course-topicoA").value = course.TopicoA;
+        document.getElementById("edit-course-topicoB").value = course.TopicoB;
+        document.getElementById("edit-course-topicoC").value = course.TopicoC;
+        document.getElementById("edit-course-topicoD").value = course.TopicoD;
+        document.getElementById("edit-course-topicoE").value = course.TopicoE;
 
         // Armazenar o ID do curso no modal para uso posterior
         document.getElementById('edit-course-modal').dataset.courseId = courseId;
@@ -114,30 +123,44 @@ async function openEditModalC(courseId) {
     }
 }
 
-// Criar um novo curso
 async function createCourse() {
+    // Captura os valores dos campos
     const Title = document.getElementById("course-title").value.trim();
     const Description = document.getElementById("course-description").value.trim();
+    const TopicoA = document.getElementById("course-topicoA").value.trim();
+    const TopicoB = document.getElementById("course-topicoB").value.trim();
+    const TopicoC = document.getElementById("course-topicoC").value.trim();
+    const TopicoD = document.getElementById("course-topicoD").value.trim();
+    const TopicoE = document.getElementById("course-topicoE").value.trim();
     const token = localStorage.getItem("token");
 
-    if (!Title || !Description) {
+    // Valida se todos os campos foram preenchidos
+    if (!Title || !Description || !TopicoA || !TopicoB || !TopicoC || !TopicoD || !TopicoE) {
         alert("Preencha todos os campos!");
         return;
     }
 
+    // Gera o slug a partir do título
     const slug = generateSlug(Title);
 
     try {
+        // Monta o objeto com os dados do curso
         const courseData = {
             data: {
                 Title,
                 Description,
+                TopicoA,
+                TopicoB,
+                TopicoC,
+                TopicoD,
+                TopicoE,
                 slug
             }
         };
 
-        console.log("Dados enviados:", courseData); 
+        console.log("Dados enviados:", courseData);
 
+        // Envia a requisição para criar o curso
         const response = await fetch("http://localhost:1337/api/courses", {
             method: "POST",
             headers: {
@@ -148,25 +171,36 @@ async function createCourse() {
         });
 
         if (!response.ok) {
-            const errorData = await response.json(); 
-            console.error("Erro detalhado:", errorData); 
+            const errorData = await response.json();
+            console.error("Erro detalhado:", errorData);
             throw new Error("Erro ao criar curso");
         }
 
         alert("Curso criado com sucesso!");
         closeModal('create-course-modal');
-        loadCourses();
+        loadCourses(); // Recarrega a lista de cursos
     } catch (error) {
         console.error("Erro ao salvar curso:", error);
         alert("Erro ao criar curso. Verifique o console para mais detalhes.");
     }
 }
 
-// Atualizar um curso existente
 async function updateCourse(courseId) {
+    // Captura os valores dos campos
     const Title = document.getElementById("edit-course-title").value.trim();
     const Description = document.getElementById("edit-course-description").value.trim();
+    const TopicoA = document.getElementById("edit-course-topicoA").value.trim();
+    const TopicoB = document.getElementById("edit-course-topicoB").value.trim();
+    const TopicoC = document.getElementById("edit-course-topicoC").value.trim();
+    const TopicoD = document.getElementById("edit-course-topicoD").value.trim();
+    const TopicoE = document.getElementById("edit-course-topicoE").value.trim();
     const token = localStorage.getItem("token");
+
+    // Valida se todos os campos foram preenchidos
+    if (!Title || !Description || !TopicoA || !TopicoB || !TopicoC || !TopicoD || !TopicoE) {
+        alert("Preencha todos os campos!");
+        return;
+    }
 
     try {
         // Buscar todos os cursos
@@ -199,7 +233,12 @@ async function updateCourse(courseId) {
         const courseData = {
             data: {
                 Title: Title || courseToUpdate.Title, // Mantém o valor antigo se o campo estiver vazio
-                Description: Description || courseToUpdate.Description
+                Description: Description || courseToUpdate.Description,
+                TopicoA: TopicoA || courseToUpdate.TopicoA,
+                TopicoB: TopicoB || courseToUpdate.TopicoB,
+                TopicoC: TopicoC || courseToUpdate.TopicoC,
+                TopicoD: TopicoD || courseToUpdate.TopicoD,
+                TopicoE: TopicoE || courseToUpdate.TopicoE
             }
         };
 

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Learning</title>
+    <link rel="stylesheet" href="../css/styleC.css">
+</head>
+<body>
+    <header class="menu-bar">
+        <div class="menu-container">
+            <div class="left-menu">
+                <a href="index.html" class="btn-model-learning">Model Learning</a>
+                <a href="courses.html" class="btn-courses">Courses</a>
+            </div>
+            <nav class="right-menu">
+                <a href="signup.html" class="signup-btn">Sign up</a> 
+                <a href="signin.html" class="signin-btn">Sign in</a>
+                <button class="admin-text hidden">Admin</button>
+                <a href="profile.html" class="profile-btn hidden">Profile</a> 
+                <button class="logout-btn hidden">Logout</button>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="main-container">
+        <div class="content">
+            <!-- Seção do Curso -->
+            <section class="course-details">
+                <h1 id="course-title">Título do Curso</h1>
+                <p id="course-description">Descrição do curso.</p>
+                <div id="course-topics">
+                    <h2>Tópicos do Curso</h2>
+                    <ul id="topics-list">
+                        <!-- Tópicos serão inseridos aqui -->
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+        <!-- Ícone do Chat -->
+    <button id="forum-icon">💬</button>
+
+    <!-- Caixa de Chat -->
+    <div id="chat-box" class="hidden">
+    <div id="chat-header">
+        <h3>Fórum de Dúvidas</h3>
+        <button id="close-chat">X</button>
+    </div>
+    <div id="chat-messages">
+        <!-- Mensagens do Chat (perguntas e respostas) serão inseridas aqui -->
+    </div>
+    <form id="forum-form">
+        <textarea id="question" placeholder="Digite sua dúvida..." required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+    </div> 
+
+    <script src="../js/chat.js"></script>
+    <script src="../js/courseDetails.js"></script> 
+    <script src="../js/uservalidade.js"></script>
+</body>
+</html>

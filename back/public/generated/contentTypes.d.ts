@@ -426,6 +426,11 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'Title'>;
     Title: Schema.Attribute.String & Schema.Attribute.Required;
+    TopicoA: Schema.Attribute.Text;
+    TopicoB: Schema.Attribute.Text;
+    TopicoC: Schema.Attribute.Text;
+    TopicoD: Schema.Attribute.Text;
+    TopicoE: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
